@@ -1,6 +1,5 @@
 class User < ActiveRecord::Base
   attr_accessible :username, :password
-  attr_accessor :password
   
   def self.authenticate(username, password)
     user = User.find(:first, :conditions => {:username => username})
