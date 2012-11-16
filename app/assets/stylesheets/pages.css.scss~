@@ -1,0 +1,29 @@
+// Place all the styles related to the Pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+#content{
+  border-top:1px solid #ccc;
+  
+  #slider{
+    margin:25px;
+    height:265px;
+    background: url(slider.png) 50% no-repeat;
+    }
+    
+  #text_blocks{
+    margin:15px;
+    
+    .text_block{
+      border:1px solid #ccc;
+      width:280px;
+      height:380px;
+      margin:10px;
+      padding:10px;
+      float:left;
+      }
+    }
+  }
+  
+.clearfix{
+  clear:both;
+  }

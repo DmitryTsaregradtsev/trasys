@@ -1,0 +1,39 @@
+!!!
+%html{ html_attrs('en') }
+  %head
+    %title Trasys
+    %meta(http-equiv="Content-Type" content="text/html; charset=utf-8")
+    = stylesheet_link_tag    "application", :media => "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  %body
+    #wrapper
+      #header        
+        #logo
+        #login_regist
+          - if current_user
+            %ul
+              %li= current_user.username
+              %li= link_to "Log Out", log_out_path
+          - else
+            %ul
+              %li= link_to "Login", new_session_path
+              %li Sign Up
+        %ul#menu
+          %li Home
+          %li About Us
+          %li Career
+          %li Benefits
+          %li Vacancies
+          - if current_user
+            %li= link_to "All Tickets", tickets_path(status: "Waiting for Staff Response")
+          - else
+            %li= link_to "Send Ticket", new_ticket_path
+      - flash.each do |key, value|
+        %p#notice= value
+      = yield
+      #footer
+        %p Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+        %p sed diem nonummy nibh euismod tincidunt ut lacreet dolore magna aliguam erat volutpat.
+        %p 2012
+

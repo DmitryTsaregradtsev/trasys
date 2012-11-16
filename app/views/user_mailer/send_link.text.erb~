@@ -1,0 +1,8 @@
+Thank you for message!
+ 
+Your ticket reference:
+<% @url %>
+
+For all your sended tickets, just follow:
+<% @url %>
+ 

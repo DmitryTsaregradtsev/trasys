@@ -1,0 +1,24 @@
+#all_tickets
+  #tickets_bar
+    %ul
+      %li= link_to 'New unassigned tickets', tickets_path(status: "Waiting for Staff Response")
+      %li= link_to 'Open Tickets', tickets_path(status: "On Hold")
+      %li= link_to 'On hold tickets', tickets_path(status: "On Hold")
+      %li= link_to 'Closed Tickets', tickets_path(status: "Completed")
+    = form_for @ticket do |t|
+  #tickets_items
+    - @tickets.each do |t|
+      %h2= t.subject
+      %p.ticket_body= t.body
+      %p.ticket_footer
+        Author:
+        = t.name
+        |
+        Email:
+        = t.email
+      %p.reply_link
+        = link_to "Reply | Edit", edit_ticket_path(t)
+      .clearfix
+      %hr
+  .clearfix
+      

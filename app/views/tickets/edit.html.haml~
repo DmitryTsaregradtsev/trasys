@@ -1,0 +1,35 @@
+#edit_ticket
+  %h2= @ticket.subject
+  %p.ticket_body= @ticket.body
+  %p.ticket_footer
+    Author:
+    = @ticket.name
+    |
+    Email:
+    = @ticket.email
+    %hr
+  %p.ticket_status
+    Status: 
+    = @ticket.status
+    - if @ticket.owner
+      Owner:
+      = @ticket.owner
+  %hr
+  %br
+  = form_for @ticket do |t|
+    %p
+      = t.label "Change Status"
+      %br
+      = t.select(:status, ['', 'Waiting for Customer', 'On Hold', 'Cancelled', 'Completed'])
+    %p
+      = t.label "Choose The Owner"
+      %br
+      = t.select(:owner, ['','Call Center Department','Information Security','Human Resources','Financial Department'])
+    %p
+      = t.label :reply
+      %br
+      = t.text_area :reply
+    %p
+      = t.submit "Update Ticket"
+      
+    

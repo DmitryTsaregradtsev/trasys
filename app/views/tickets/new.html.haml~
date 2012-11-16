@@ -1,0 +1,48 @@
+!!!
+%html{ html_attrs('en') }
+  %head
+    %title Trasys
+    %meta(http-equiv="Content-Type" content="text/html; charset=utf-8")
+  %body
+    #wrapper
+      #header        
+        #logo
+        #login_regist
+          %p Login | Sign Up
+        %ul#menu
+          %li Home
+          %li About Us
+          %li Career
+          %li Benefits
+          %li Vacancies
+          %li= link_to "Send Ticket", new_ticket_path
+      #ticket_form
+        %h2 Ticket Form
+        %h5 Send Us Your Ticket And We Will Reply
+        = form_for @ticket do |f|
+          %p
+            = f.label :name 
+            %br
+            = f.text_field :name
+          %p
+            = f.label :email
+            %br
+            = f.text_field :email
+          %p
+            = f.label :department
+            %br
+            = f.select(:department, ['Call Center Department','Information Security','Human Resources','Financial Department'])
+          %p
+            = f.label :subject
+            %br
+            = f.text_field :subject
+          %p
+            = f.label :description
+            %br
+            = f.text_area :body
+          %p
+            = f.submit "Send Ticket"
+      #footer
+        %p Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+        %p sed diem nonummy nibh euismod tincidunt ut lacreet dolore magna aliguam erat volutpat.
+        %p 2012
